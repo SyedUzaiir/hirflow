@@ -21,3 +21,10 @@ htmlcov/
 build/
 dist/
 *.egg-info/
+
+# Video and Media files
+*.mp4
+*.mov
+*.avi
+*.mkv
+
