@@ -408,19 +408,28 @@ st.markdown(f"<div class='agent-trace-badge'>Workflow Route: {trace_display}</di
 
 # Main Navigation Tabs
 tab1, tab2, tab3 = st.tabs(["💬 Conversation Hub", "🎯 Ranked Match Candidates", "📄 Active Job Description"])
-
 # --- TAB 1: CONVERSATION HUB ---
 with tab1:
-    # Display Confirmation alert at top of chat if pending
     confirmation_required = st.session_state.state.get("confirmation_required", False)
     action_type = st.session_state.state.get("action_type", "")
-    
+
+    # Chat Display
+    for msg in st.session_state.chat_history:
+        with st.chat_message(msg["role"]):
+            if msg["role"] == "assistant" and "Market Salary Research for" in msg["content"]:
+                raw_data = st.session_state.state.get("salary_market_data", "")
+                if raw_data:
+                    render_formatted_salary(raw_data)
+                else:
+                    st.markdown(msg["content"])
+            else:
+                st.markdown(msg["content"])
+                
+    # Display Confirmation alert at bottom of chat if pending
     if confirmation_required:
+        st.markdown("---")
         if action_type == "salary_budget":
             st.warning("⚠️ **Recruiter Action Confirmation Required**")
-            raw_data = st.session_state.state.get("salary_market_data", "")
-            render_formatted_salary(raw_data)
-            
             st.markdown("### 👤 Recruiter Decision Required")
             budget_val = st.text_input("Enter your company salary budget range:", placeholder="e.g. $130,000 - $160,000 or 15 - 20 LPA", key="budget_input_field")
             col1, col2 = st.columns([1, 4])
@@ -448,18 +457,6 @@ with tab1:
                     submit_cancel()
         st.markdown("---")
 
-    # Chat Display
-    for msg in st.session_state.chat_history:
-        with st.chat_message(msg["role"]):
-            if msg["role"] == "assistant" and "Market Salary Research for" in msg["content"]:
-                raw_data = st.session_state.state.get("salary_market_data", "")
-                if raw_data:
-                    render_formatted_salary(raw_data)
-                else:
-                    st.markdown(msg["content"])
-            else:
-                st.markdown(msg["content"])
-            
     # Chat Input (Enabled only when no approval is pending)
     if not confirmation_required:
         if prompt := st.chat_input("Ask HireFlow Agent a task..."):
