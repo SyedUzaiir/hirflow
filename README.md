@@ -1,121 +1,263 @@
-# HireFlow Agent - Agentic AI Recruitment Assistant
+# HireFlow Agent 🤖
 
-HireFlow Agent is a terminal-based conversational recruitment assistant designed for HR recruiters to manage hiring workflows with human-in-the-loop validation.
+[![Python](https://img.shields.io/badge/Python-3.10%2B-blue?logo=python&logoColor=white)](https://www.python.org/)
+[![LangGraph](https://img.shields.io/badge/Agent_Framework-LangGraph-orange?logo=langchain)](https://github.com/langchain-ai/langgraph)
+[![Gemini](https://img.shields.io/badge/LLM-Gemini_2.5_Flash-red?logo=google-gemini)](https://ai.google.dev/)
+[![ChromaDB](https://img.shields.io/badge/Vector_DB-ChromaDB-blue)](https://www.trychroma.com/)
+[![Tavily](https://img.shields.io/badge/Search_API-Tavily-brightgreen)](https://tavily.com/)
+[![Streamlit](https://img.shields.io/badge/Frontend-Streamlit-FF4B4B?logo=streamlit&logoColor=white)](https://streamlit.io/)
+
+> **An Agentic AI Recruitment Assistant powered by LangGraph, RAG semantic search, and Human-in-the-Loop recruiter safeguards.**
 
 ---
 
-## Architecture Overview
+## 📌 1. Problem Statement
 
-The system is built on **LangGraph** as a central state machine. Rather than using a single giant monolithic agent, it divides tasks into specialized **Nodes** coordinated by a **Hybrid Router**.
+Recruitment professionals manually spend hours on tedious candidate search tasks:
+* Reading, parsing, and classifying hundreds of resumes.
+* Comparing candidates side-by-side to match specific Job Description (JD) requirements.
+* Manually writing custom technical and behavioral interview preparation guides.
+* Conducting external salary research on multiple platforms to gauge market averages.
 
-```mermaid
-graph TD
-    START --> Router[Router Node]
-    
-    Router -- "Regex or Gemini" --> Parser[JD Parser Node]
-    Router -- "Regex or Gemini" --> Loader[Resume Loader Node]
-    Router -- "Regex or Gemini" --> Counter[Applicant Counter Node]
-    Router -- "Regex or Gemini" --> Matcher[Candidate Matcher Node]
-    Router -- "Regex or Gemini" --> Rewrite[JD Rewrite Node]
-    Router -- "Regex or Gemini" --> Interview[Interview Generator Node]
-    Router -- "Regex or Gemini" --> Salary[Salary Research Node]
-    Router -- "Regex or Gemini" --> Comparison[Candidate Comparison Node]
-    Router -- "Regex or Gemini" --> RedFlags[Red Flags Node]
-    Router -- "Regex or Gemini" --> Mismatch[JD Mismatch Node]
-    Router -- "Regex or Gemini" --> Help[Help Node]
+**Traditional Chatbots** only answer general queries—they cannot manage workflow execution, preserve complex states, run external search tools, query local vector databases, or pause for human approval. 
 
-    Parser --> END
-    Loader --> END
-    Counter --> END
-    Interview --> END
-    Comparison --> END
-    RedFlags --> END
-    Mismatch --> END
-    Help --> END
+**HireFlow Agent** solves this by shifting from simple chatbot Q&A to a **fully-fledged agentic recruitment workflow** that acts as an intelligent co-pilot for HR professionals.
 
-    Matcher --> Approval[Human Approval Node]
-    Rewrite --> Approval
-    Salary --> Approval
+---
 
-    Approval -- "If Approved/Saved" --> END
-    Approval -- "If Awaiting Input" --> END
+## 🎯 2. Our Solution
+
+HireFlow Agent is designed as a recruiter co-pilot: the **AI recommends, the human decides**. 
+
+### Core Capabilities:
+* **Structured JD Parsing**: Extracts role, required skills, and experience constraints using Pydantic structured output models.
+* **Semantic Resume Ranking**: Screens candidate resume files using dense vector embeddings in a ChromaDB database.
+* **Live Web Salary Research**: Conducts real-time market research using the Tavily Search API.
+* **Custom Interview Guides**: Creates candidate-specific interview guides grounded in their resume and JD requirements.
+* **JD Rewrite Engine**: Adapts JDs dynamically into Start-up, Friendly, or Corporate tones.
+* **Resume Red-Flag Scanner**: Identifies employment gaps, tenure anomalies, and timeline gaps.
+* **JD Mismatch Feedback**: Analyzes candidate pool stats to tell recruiters if their requirements are too strict.
+* **Recruiter Decision Gates**: Automatically pauses execution to request recruiter approval before final shortlists or budgets.
+
+---
+
+## 🧠 3. Why Agentic AI?
+
+A traditional LLM chatbot processes inputs linearly:
+```text
+Recruiter ──► Chatbot LLM ──► Text Response
+```
+In contrast, **HireFlow Agent** utilizes a multi-node workflow driven by **LangGraph**. The LLM is not the entire application—it is a cognitive engine used for reasoning, while the agent controls the state, memory routing, tool calls, and human approvals:
+
+```text
+Recruiter 
+    │
+    ▼
+Hybrid Router (Regex / Fuzzy Match / Gemini Fallback)
+    │
+    ▼
+LangGraph State Machine
+    ├── JD Parser Node ──► Gemini Structured Extraction
+    ├── RAG Search Node ──► ChromaDB Vector Search + Ranking
+    ├── Web Search Node ──► Tavily API Live Market Search
+    └── Human Approval Gate (Pauses execution for recruiter validation)
 ```
 
 ---
 
-## State Design
+## 🏗️ 4. System Architecture
 
-The shared state dictionary (`AgentState`) maintains conversation history, data parameters, vector matching output, external market data, and human control flags:
-
-```python
-class AgentState(TypedDict):
-    user_query: str
-    intent: str
-    conversation_history: List[Dict[str, str]]
-    next_node: str
-    raw_jd: str
-    role: str
-    required_skills: List[str]
-    experience_required: str
-    location: str
-    resumes_loaded: bool
-    total_candidates: int
-    matched_candidates: List[Dict[str, Any]]
-    shortlisted_candidates: List[Dict[str, Any]]
-    rewritten_jd: str
-    interview_questions: Dict[str, List[str]]
-    jd_feedback: str
-    candidate_comparison: str
-    red_flags: Dict[str, List[str]]
-    salary_market_data: str
-    company_salary_range: str
-    skill_trends: List[str]
-    confirmation_required: bool
-    action_type: str
-    recruiter_response: str
-    response_message: str
+```text
+                               Recruiter
+                                   │
+                                   ▼
+                       Streamlit Web UI / CLI
+                                   │
+                                   ▼
+                            LangGraph Agent
+                                   │
+                                   ▼
+                       3-Level Hybrid Router 
+                                   │
+         ┌─────────────────────────┼─────────────────────────┐
+         ▼                         ▼                         ▼
+    JD Parser Node        Resume Ranking Node       Salary Research Node
+         │                         │                         │
+     Gemini LLM               ChromaDB RAG              Tavily API
+         │                         │                         │
+         └─────────────────────────┼─────────────────────────┘
+                                   ▼
+                         Human Approval Gate
 ```
 
 ---
 
-## Node Details
+## 🔁 5. Agent Workflow
 
-1. **Router Node**: Uses regex checks for quick, rule-based matching (e.g. counting applicants, YES/NO responses) to minimize LLM usage. Falls back to Gemini structure classification when query intent is ambiguous.
-2. **JD Parser Node**: Uses Gemini structured output to parse job descriptions into roles, required skills, location constraints, and experience requirements.
-3. **Resume Loader Node**: Indexes the resumes directory using **ChromaDB** and `sentence-transformers/all-MiniLM-L6-v2` dense vectors.
-4. **Applicant Counter Node**: Fast python node that counts resumes without invoking any LLMs.
-5. **RAG Screening Node (Candidate Matcher)**: Retrieves candidates from ChromaDB, scores alignment, extracts matching and missing skills, and explains candidate suitability.
-6. **JD Rewrite Node**: Rewrites job descriptions for specific tones (Startup, Friendly, Corporate) retaining requirement logic.
-7. **Interview Question Node**: Generates tailored candidate guides (3 technical, 2 project, 1 behavioral question) using candidates' unique skills and backgrounds.
-8. **Salary Research Node**: Uses Tavily web search to query market rates, displays findings, and prompts the recruiter to specify their company's salary budget.
-9. **Human Approval Node**: Intercepts actions requiring approval (shortlists, JD updates, salary budgets). Resumes execution after the recruiter approves.
-10. **Candidate Comparison**: Head-to-head analysis comparing strengths, weaknesses, and recommendation.
-11. **Red Flags Detector**: Scans resume histories for gaps, short tenures, and timeline anomalies.
-12. **JD Mismatch Analyzer**: Highlights mismatches between JD constraints (e.g. experience levels) and actual candidate pool availability.
+1. **Router Node**: Normalizes recruiter text (corrects spelling typos, strips symbols) and routes using a 3-level hybrid system:
+   * *Level 1*: Direct exact keyword matching (for speed).
+   * *Level 2*: Fuzzy token similarity matching via `rapidfuzz` (threshold > 75%).
+   * *Level 3*: Gemini 2.5 Flash classifier (for ambiguous natural intent).
+2. **JD Parser Node**: Parses raw JD texts into structured Pydantic models.
+3. **Resume Screening Agent (RAG)**: Indexes local resumes into ChromaDB using `all-MiniLM-L6-v2` sentence-transformer embeddings, retrieves candidate matches, and grades them.
+4. **Salary Agent**: Searches real-time salary ranges using Tavily, formats the search results, and requests a final company budget constraint.
+5. **Interview Agent**: Cross-references resumes with JD criteria to generate customized technical and behavioral interview guides.
+6. **Human Approval Gate**: Intercepts actions (like shortlisting or budget adjustments), pausing graph execution until the recruiter approves or overrides.
 
 ---
 
-## Setup & Running Guide
+## 📊 6. Features Table
 
-### 1. Configure Credentials
-Duplicate `.env.example` as `.env` and enter your API keys:
+| Feature | Technology | Recruiter Purpose |
+| :--- | :--- | :--- |
+| **JD Parsing** | Gemini + Pydantic | Extract role constraints and skills |
+| **Resume Matching** | ChromaDB RAG | Semantic candidate search and grading |
+| **Salary Research** | Tavily Web Search | Real-time market compensation ranges |
+| **Fuzzy Intent Routing** | `rapidfuzz` | Graceful handling of recruiter spelling mistakes |
+| **Human Safeguards** | LangGraph State | Pauses workflow for recruiter approvals |
+| **Red Flag Check** | Gemini | Detect employment gaps and short tenures |
+| **Side-by-Side Comp** | Gemini | Structured candidate comparisons |
+| **JD Mismatch** | Gemini | Spot requirement mismatch against pool |
+
+---
+
+## 🤝 7. Human-in-the-Loop Design
+
+To prevent unchecked AI decision-making (Responsible AI), HireFlow Agent incorporates strict human gates:
+* **The AI does NOT**: Automatically shortlist candidates, decide salaries, rewrite active job files, or reject candidates.
+* **The AI does**: Grade, search, recommend, explain, and request recruiter approval.
+
+### Examples:
+* **Candidate Shortlisting**:
+  ```text
+  AI Recommendation: "Based on RAG analysis, I recommend Rohan and Anjali."
+  Recruiter Action Required: [Approve (YES) / Reject (NO)]
+  Recruiter Action: YES -> Shortlist saved to state.
+  ```
+* **Salary Research**:
+  ```text
+  Tavily Live Results: ML Engineer average in Bengaluru is ₹15 LPA - ₹40 LPA.
+  Recruiter Action Required: "Define company salary budget:"
+  Recruiter Input: ₹25 LPA -> Company budget recorded as final source of truth.
+  ```
+
+---
+
+## 💻 8. Tech Stack
+
+* **Frontend**: Streamlit
+* **Agent Framework**: LangGraph
+* **Large Language Model**: Gemini 2.5 Flash (via `google-generativeai`)
+* **Vector Database**: ChromaDB
+* **Embeddings**: `sentence-transformers/all-MiniLM-L6-v2`
+* **Web Search Tool**: Tavily API
+* **Intent Processing**: `rapidfuzz` (Fuzzy logic)
+* **Configuration**: `python-dotenv`, `pydantic`
+* **CLI Layouts**: `rich` (console tables and debug traces)
+
+---
+
+## 📂 9. Project Structure
+
+```text
+HireAgentAI/
+├── agents/             # LangGraph core workflow configuration
+│   ├── graph.py        # Compiles and builds the StateGraph workflow
+│   ├── nodes.py        # Core node logic, LLM prompts, and tool calls
+│   └── state.py        # Shared AgentState definition
+├── tools/              # Specialized agent utility tool modules
+│   ├── rag_tool.py     # ChromaDB vector store wrapper and sentence-transformers loader
+│   └── salary_tool.py  # Tavily Web Search API client wrapper
+├── models/             # Data schemas
+│   └── schemas.py      # Pydantic extraction models for structured LLM outputs
+├── data/               # Project database mocks
+│   ├── jd/             # Active Job Description document storage
+│   └── resumes/        # Raw candidate resume text database (16 mock candidates)
+├── docs/               # Technical documents
+│   └── ARCHITECTURE_EXPLANATION.md # Comprehensive hackathon judge architectural breakdown
+├── main.py             # CLI program entrypoint
+├── streamlit_app.py    # Streamlit Web UI dashboard wrapper
+└── requirements.txt    # Python dependencies list
+```
+
+---
+
+## 🛠️ 10. Installation & Run Guide
+
+### 1. Clone the repository and navigate to the project directory:
 ```bash
-GEMINI_API_KEY=AIzaSy...
-TAVILY_API_KEY=tvly-...
+git clone https://github.com/SyedUzaiir/hirflow.git
+cd hirflow
 ```
 
-### 2. Run the System
-Start the terminal interface:
+### 2. Set up and activate a Virtual Environment:
+```powershell
+python -m venv .venv
+# On Windows PowerShell:
+.venv\Scripts\activate
+# On Linux/macOS:
+source .venv/bin/activate
+```
+
+### 3. Install the dependencies:
+```bash
+pip install -r requirements.txt
+```
+
+### 4. Configure API Credentials:
+Create a `.env` file in the root directory and add your keys:
+```env
+GEMINI_API_KEY=your_gemini_api_key_here
+TAVILY_API_KEY=your_tavily_api_key_here
+```
+
+### 5. Launch the Interfaces:
+
+#### Option A: Streamlit Web UI (Recommended)
+```powershell
+.venv\Scripts\python -m streamlit run streamlit_app.py
+```
+*Loads the recruiter dashboard instantly (optimized with Streamlit resource caching).*
+
+#### Option B: Terminal CLI Interface
 ```bash
 python main.py
 ```
 
-### 3. Workflow Commands to Try
-* `How many applicants?` - Checks local resumes (16 mock resumes are created and auto-indexed).
-* `Find top candidates` - Screens candidates and matches them against the JD. Proposes Rahul Sharma and Emily Chen for shortlisting, asking for confirmation.
-* `Rewrite JD for startup` - Generates a new JD draft and asks for approval before replacing the active JD.
-* `What is the salary expectation?` - Researches market rate and prompts you to define your company budget (saves value to state).
-* `Compare Rahul and Priya` - Runs a detailed comparison of strengths and weaknesses.
-* `Show red flags for Rohan` - Analyzes timeline gaps (Rohan Gupta has a gap in 2024-2025).
-* `Show JD candidate mismatch` - Evaluates if JD constraints align with the applicant pool.
-* `Generate interview questions for Emily` - Generates customized candidate screening questions.
+---
+
+## 💬 11. Demo Flow Example
+
+1. **Start Conversation**:
+   Recruiter types: *"Find best applicants"*
+2. **Hybrid Router Node**:
+   Checks query, detects candidate matching intent, and prints the debug trace panel.
+3. **ChromaDB Vector Screening Node**:
+   Queries ChromaDB using embedding vectors, grades candidate compatibility, and presents the ranked scorecard.
+4. **Human Approval Gate**:
+   Stops workflow and asks the recruiter to confirm.
+5. **UI Candidate Card Tab**:
+   Renders custom candidate cards showing match scores, matched/missing skills, and detailed AI evaluations.
+
+---
+
+## 🏆 12. Hackathon Requirement Mapping
+
+| Evaluation Criteria | Our Implementation | Verified Status |
+| :--- | :--- | :--- |
+| **RAG Usage** | Vector matching on resumes using `sentence-transformers` and ChromaDB | ✅ Verified |
+| **Tool Usage** | Tavily search for live salary data | ✅ Verified |
+| **Agentic Workflow** | Multi-node StateGraph routing using LangGraph | ✅ Verified |
+| **Smart Routing** | Plain Python applicant counting (skips LLM API calls) | ✅ Verified |
+| **Typos & Synonyms** | Hybrid router using keyword mapping + `rapidfuzz` scoring | ✅ Verified |
+| **Safeguards** | Pauses execution for human approvals | ✅ Verified |
+| **Visually Stunning UI** | Slate-dark mode Streamlit dashboard with metrics and cards | ✅ Verified |
+
+---
+
+## 🚀 13. Future Improvements
+
+* **PDF Parsing**: Add direct PDF extraction tools (`pdfplumber` / `PyPDF2`) to parse native PDF resume uploads.
+* **ATS Integrations**: Sync shortlist records directly with Greenhouse, Lever, or Workday APIs.
+* **Automated Outreach**: Integrate SMTP/SendGrid to draft and send follow-up technical screening emails.
+* **Scheduling**: Embed Cal.com or Google Calendar links to coordinate interview times automatically.
