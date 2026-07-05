@@ -1,0 +1,10 @@
+Name: David Miller
+Skills: Vue.js, Nuxt.js, Node.js, Express, JavaScript, CSS, HTML5, MongoDB
+Experience:
+- Full Stack UI Developer, DigitalWeb (2020 - Present): Designed responsive interfaces using Vue.js. Built lightweight APIs in Node.js/Express.
+- Web Designer, AgencyCreative (2018 - 2020): Created web pages using HTML, CSS, and basic JavaScript.
+Education:
+- B.F.A in Graphic Design, NYU (2014 - 2018)
+Projects:
+- UI Theme Customizer: Interactive client portal built with Vue.js.
+- Creative Agency Site: A beautiful responsive landing page featuring smooth page animations.

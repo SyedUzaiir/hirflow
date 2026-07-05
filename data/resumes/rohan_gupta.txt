@@ -1,0 +1,11 @@
+Name: Rohan Gupta
+Skills: Python, FastAPI, Django, PostgreSQL, Redis, Docker, AWS, Microservices
+Experience:
+- Senior Backend Developer, ScaleTech (2021 - 2024): Architected microservices with FastAPI. Managed Redis cache databases and hosted PostgreSQL on AWS. Optimized container images using Docker.
+- [GAP IN EMPLOYMENT] (May 2024 - June 2025): Personal sabbatical.
+- Backend Engineer, CoreCorp (2018 - 2021): Built web backends with Django and PostgreSQL.
+Education:
+- B.Tech in CSE, BITS Pilani (2014 - 2018)
+Projects:
+- Real-time Chat: Socket-based chat server using FastAPI and Redis.
+- Analytics Tool: Ingested large volumes of client request data into PostgreSQL.

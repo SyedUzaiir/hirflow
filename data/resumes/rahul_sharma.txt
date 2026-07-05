@@ -1,0 +1,10 @@
+Name: Rahul Sharma
+Skills: Python, FastAPI, PostgreSQL, Docker, Redis, AWS, Git, RESTful APIs
+Experience:
+- Senior Backend Engineer, TechCorp (2022 - Present): Designed and deployed high-performance APIs using Python and FastAPI. Optimized PostgreSQL queries, reducing latency by 30%. Configured Redis caching layers and deployed containerized services on AWS using Docker.
+- Software Engineer, DevSolutions (2020 - 2022): Developed backend systems using Python, Django, and PostgreSQL. Worked on containerizing applications with Docker.
+Education:
+- B.Tech in Computer Science, IIT Bombay (2016 - 2020)
+Projects:
+- Microservices API Gateway: Built a custom API gateway using FastAPI, Docker, and Redis caching.
+- DB Migration Tool: Created a utility for seamless PostgreSQL database migrations in Python.

@@ -1,0 +1,9 @@
+Name: Michael Chang
+Skills: Python, FastAPI, PostgreSQL, Git, JavaScript
+Experience:
+- Junior Backend Developer, QuickDev (2025 - Present): Writing REST APIs and performing minor updates using FastAPI and PostgreSQL.
+Education:
+- B.S. in Software Engineering, University of Washington (2021 - 2025)
+Projects:
+- Recipe Finder API: Simple backend in FastAPI to query recipe databases.
+- Postgres Seeder: Python script to generate mock records for database testing.

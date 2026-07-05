@@ -1,0 +1,10 @@
+Name: Anjali Rao
+Skills: Python, FastAPI, PostgreSQL, Docker, Redis, AWS, CI/CD, Git
+Experience:
+- Backend Engineer, InnovateHub (2021 - Present): Implemented core backend APIs using Python and FastAPI. Programmed Redis caching systems. Configured PostgreSQL queries and containerized workflows with Docker. Managed AWS architecture.
+- Backend Associate, TechPioneers (2019 - 2021): Built python modules, executed script cleanups, and documented APIs.
+Education:
+- M.Tech in Software Systems, IIIT Bangalore (2017 - 2019)
+Projects:
+- Live Dashboard Backend: Scalable FastAPI and PostgreSQL backend with Redis.
+- Automated Deployer: Git-triggered AWS runner using Docker.

@@ -1,0 +1,10 @@
+Name: Alex Mercer
+Skills: Python, FastAPI, PostgreSQL, Redis, Docker, Git, RESTful APIs
+Experience:
+- Software Engineer, DevLabs (2023 - Present): Formulated backend logic in Python and FastAPI. Handled Redis database key schemes. Conducted local setup using Docker.
+- Junior Backend Engineer, WebLink (2022 - 2023): Created database queries in PostgreSQL and python utility scripts.
+Education:
+- B.S. in Computer Science, UT Dallas (2018 - 2022)
+Projects:
+- User Authentication API: Secure session state backend using FastAPI and Redis.
+- Inventory System: Django app backed by PostgreSQL database.

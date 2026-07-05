@@ -1,0 +1,10 @@
+Name: Emily Chen
+Skills: Python, FastAPI, PostgreSQL, Redis, Docker, AWS, GraphQL, MongoDB
+Experience:
+- Senior Backend Engineer, FinTech Solutions (2019 - Present): Developed secure transactional APIs using FastAPI. Implemented distributed caching via Redis. Automated deployments with Docker and managed AWS instances.
+- Software Engineer, InfoSys (2017 - 2019): Maintained Java backend services and gradually transitioned scripts to Python.
+Education:
+- B.Sc. in Computer Science, UC Berkeley (2013 - 2017)
+Projects:
+- Payment Processing Engine: Highly secure Python service using FastAPI and PostgreSQL.
+- API Performance Tuning: Reduced response times by caching heavy queries in Redis.

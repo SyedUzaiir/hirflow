@@ -1,0 +1,21 @@
+Role: Senior Backend Engineer
+Required Skills: Python, FastAPI, PostgreSQL, Docker, Redis, AWS
+Experience Required: 5+ years
+Location: San Francisco, CA (Hybrid)
+
+Job Description:
+We are looking for a Senior Backend Engineer to join our growing product team. In this role, you will design, build, and maintain efficient, reusable, and reliable backend service architectures. 
+
+Key Responsibilities:
+- Build high-performance RESTful APIs using Python and FastAPI.
+- Optimize database schemas and queries in PostgreSQL.
+- Architect caching layers using Redis.
+- Containerize services using Docker and manage deployments on AWS.
+- Design scalable microservices and collaborate with frontend developers.
+
+Qualifications:
+- 5+ years of professional backend software development experience.
+- Deep expertise in Python and frameworks like FastAPI or Django.
+- Experience with relational databases (PostgreSQL) and caching tools (Redis).
+- Hands-on experience with cloud platforms (AWS) and containers (Docker).
+- Strong understanding of software development lifecycle and clean code principles.

@@ -1,0 +1,10 @@
+Name: Priya Patel
+Skills: Python, Flask, Django, PostgreSQL, Docker, Git, HTML, CSS
+Experience:
+- Backend Engineer, WebSoft (2022 - Present): Maintained and upgraded backend APIs using Python and Flask. Designed database schemas in PostgreSQL. Managed local containerized environments using Docker.
+- Junior Developer, CodeLab (2021 - 2022): Wrote Django scripts and helped manage PostgreSQL database backups.
+Education:
+- B.E. in Information Technology, Pune University (2017 - 2021)
+Projects:
+- E-commerce Backend: Created REST APIs for checkout and cart management using Flask and PostgreSQL.
+- Blogging Platform: Deployed a blogging system using Django and Docker.

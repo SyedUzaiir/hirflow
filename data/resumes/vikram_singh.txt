@@ -1,0 +1,10 @@
+Name: Vikram Singh
+Skills: Python, Django, PostgreSQL, Docker, AWS, Git, Nginx
+Experience:
+- Backend Engineer, CloudFlow (2021 - Present): Programmed Django REST services. Deployed Docker structures on AWS behind Nginx reverse proxies.
+- Software Engineer, SystemsCare (2019 - 2021): Worked with Python, Django, and relational databases.
+Education:
+- B.Tech in CSE, Delhi Technological University (2015 - 2019)
+Projects:
+- Inventory API: Django-based tracking tool featuring AWS media upload integrations.
+- Postgres Cluster Setup: Configured write-replicas for PostgreSQL backend.

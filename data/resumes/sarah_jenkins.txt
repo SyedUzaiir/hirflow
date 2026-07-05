@@ -1,0 +1,10 @@
+Name: Sarah Jenkins
+Skills: AWS, Docker, Kubernetes, Terraform, Python, Bash, CI/CD pipelines
+Experience:
+- DevOps Engineer, InfraOps (2020 - Present): Designed AWS cloud architecture. Maintained infrastructure-as-code using Terraform. Managed container deployments with Docker and Kubernetes. Wrote Python and Bash automation scripts.
+- Linux System Administrator, HostGroup (2018 - 2020): Monitored server uptime, script execution, and user permissions.
+Education:
+- B.S. in Computer Engineering, UT Austin (2014 - 2018)
+Projects:
+- Auto-scaling Terraform: Deployed an auto-scaling group on AWS with custom CloudWatch alerts.
+- Jenkins CI Pipeline: Automated build and testing phases for a Python backend.

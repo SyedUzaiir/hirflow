@@ -1,0 +1,10 @@
+Name: Siddharth Mehta
+Skills: SQL, PostgreSQL, Database Tuning, Python, AWS, SQL Server, Oracle
+Experience:
+- Database Administrator & Dev, DBMasters (2021 - Present): Designed complex database schemas, implemented recovery protocols, and optimized indexes in PostgreSQL. Used Python for scripting database tasks.
+- SQL Developer, DataCorp (2018 - 2021): Created database views, stored procedures, and triggers.
+Education:
+- B.Tech in IT, VIT Vellore (2014 - 2018)
+Projects:
+- Query Analyzer: A Python tool to parse and report slow PostgreSQL queries.
+- Cloud DB Migration: Migrated local SQL databases to AWS RDS instances.

@@ -1,0 +1,10 @@
+Name: Amit Verma
+Skills: Python, Flask, SQLite, HTML, CSS, JavaScript, Git
+Experience:
+- Junior Python Developer, AppCraft (2024 - Present): Developing minor script improvements and maintaining internal tools using Python and Flask.
+- Internship, TechStart (2023 - 2024): Assisted in front-end styling and small Flask modifications.
+Education:
+- B.C.A, Delhi University (2020 - 2023)
+Projects:
+- Task Tracker: A simple Flask app with an SQLite database backend.
+- Weather App: A Python CLI tool to fetch weather from public APIs.

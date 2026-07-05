@@ -1,0 +1,10 @@
+Name: Jane Smith
+Skills: React, TypeScript, JavaScript, HTML, CSS, TailwindCSS, Jest, Front-End Design
+Experience:
+- Frontend Engineer, DesignStudio (2023 - Present): Engineered interactive user interfaces using React and TypeScript. Styled interfaces with TailwindCSS and wrote unit tests using Jest.
+- UI Developer, PixelPerfect (2021 - 2023): Collaborated with UX designers to translate wireframes into clean HTML/CSS/JavaScript components.
+Education:
+- B.Sc. in Web Development, Boston University (2018 - 2021)
+Projects:
+- Portfolio Builder: React app allowing developers to customize portfolios.
+- Dashboard UI: A premium, highly animated dashboard styled with TailwindCSS.

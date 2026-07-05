@@ -1,0 +1,10 @@
+Name: Jessica Taylor
+Skills: Java, Spring Boot, PostgreSQL, Docker, AWS, Maven, Hibernate
+Experience:
+- Senior Backend Developer, EnterpriseSys (2021 - Present): Managed enterprise APIs built on Java and Spring Boot. Maintained PostgreSQL databases and orchestrated AWS deployments with Docker.
+- Software Developer, JavaHub (2019 - 2021): Built Spring Boot microservices and configured CI/CD.
+Education:
+- B.S. in Computer Science, Georgia Tech (2015 - 2019)
+Projects:
+- Core banking module: Financial ledger service built using Spring Boot and PostgreSQL.
+- Docker-Compose Orchestration: Bundled multiple Spring boot services into Docker containers.

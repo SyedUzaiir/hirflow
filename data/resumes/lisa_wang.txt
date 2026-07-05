@@ -1,0 +1,10 @@
+Name: Lisa Wang
+Skills: Python, R, Pandas, NumPy, Scikit-Learn, SQL, PyTorch, Data Visualization
+Experience:
+- Data Scientist, InsightData (2022 - Present): Generated machine learning models to classify user behavior. Wrote SQL queries to aggregate datasets.
+- Data Analyst, MetricCorp (2020 - 2022): Prepared analytical reports and dashboards.
+Education:
+- M.S. in Data Science, Columbia University (2018 - 2020)
+Projects:
+- Churn Predictor: Machine learning algorithm predicting user churn using Python.
+- SQL Sales Analysis: Complex query scripts summarizing global store metrics.
