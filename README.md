@@ -11,6 +11,12 @@
 
 ---
 
+### 🎥 Live Demo Video & Submission Assets
+* **Watch the Walkthrough Video**: 🔗 [Google Drive Demo Video](https://drive.google.com/file/d/1kb_4XglZjykBweDG5SvNAi07jBuaZBMs/view?usp=sharing)
+* **Submission Materials**: Please check the [submission/](file:///d:/Projects/HireAgentAI/submission/) folder for screenshots, technical pitch presentation slides, and documentation resources.
+
+---
+
 ## 📌 1. Problem Statement
 
 Recruitment professionals manually spend hours on tedious candidate search tasks:
