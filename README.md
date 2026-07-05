@@ -11,6 +11,15 @@
 
 ---
 
+## 👥 Team & College Details
+* **Team Name**: Vcoders
+* **Presenter**: Syed Uzair Mohiuddin
+* **Roll Number**: 24885A0542
+* **Branch**: Computer Science & Engineering (CSE)
+* **College**: Vardhaman College of Engineering
+
+---
+
 ### 🎥 Live Demo Video & Submission Assets
 
 [![Watch the Demo Video](https://img.youtube.com/vi/ExFb-XrhXoY/maxresdefault.jpg)](https://youtu.be/ExFb-XrhXoY)
