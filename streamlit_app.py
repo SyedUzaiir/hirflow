@@ -7,7 +7,7 @@ import re
 from dotenv import load_dotenv
 
 # Load environment variables
-load_dotenv()
+load_dotenv(override=True)
 
 # Configure Page Settings (MUST be the first Streamlit command)
 st.set_page_config(
