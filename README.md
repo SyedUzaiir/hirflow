@@ -12,7 +12,10 @@
 ---
 
 ### 🎥 Live Demo Video & Submission Assets
-* **Watch the Walkthrough Video**: 🔗 [Google Drive Demo Video](https://drive.google.com/file/d/1kb_4XglZjykBweDG5SvNAi07jBuaZBMs/view?usp=sharing)
+
+[![Watch the Demo Video](https://img.youtube.com/vi/ExFb-XrhXoY/maxresdefault.jpg)](https://youtu.be/ExFb-XrhXoY)
+
+* **Watch the Walkthrough Video**: 🔗 [YouTube Demo Video](https://youtu.be/ExFb-XrhXoY) | 🔗 [Google Drive Demo Video Backup](https://drive.google.com/file/d/1kb_4XglZjykBweDG5SvNAi07jBuaZBMs/view?usp=sharing)
 * **Submission Materials**: Please check the [submission/](file:///d:/Projects/HireAgentAI/submission/) folder for screenshots, technical pitch presentation slides, and documentation resources.
 
 ---

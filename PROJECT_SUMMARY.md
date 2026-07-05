@@ -2,7 +2,10 @@
 
 ## Project Description
 * **Project**: HireFlow Agent
+* **Team**: Team Vcoders
+* **Presenter**: Syed Uzair Mohiuddin (Roll Number: 24885A0542, Branch: CSE, Section: G)
 * **Problem Statement**: Recruitment System Chatbot (An AI hiring co-pilot assisting HR recruiters in managing screening, interview preparation, and salary research)
+* **Demo Video**: 🔗 [YouTube Walkthrough](https://youtu.be/ExFb-XrhXoY) | 🔗 [Google Drive Backup](https://drive.google.com/file/d/1kb_4XglZjykBweDG5SvNAi07jBuaZBMs/view?usp=sharing)
 
 ## Core Features
 - **Agentic Workflow**: Multi-node workflow built on LangGraph for state management, intent classification, and memory loops.
