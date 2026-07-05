@@ -8,6 +8,7 @@ ENV/
 
 # Vector Database storage
 vector_store/
+chroma_db/
 
 # Python Cache and Builds
 __pycache__/
