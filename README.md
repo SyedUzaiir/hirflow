@@ -25,7 +25,8 @@
 [![Watch the Demo Video](https://img.youtube.com/vi/ExFb-XrhXoY/maxresdefault.jpg)](https://youtu.be/ExFb-XrhXoY)
 
 * **Watch the Walkthrough Video**: 🔗 [YouTube Demo Video](https://youtu.be/ExFb-XrhXoY) | 🔗 [Google Drive Demo Video Backup](https://drive.google.com/file/d/1kb_4XglZjykBweDG5SvNAi07jBuaZBMs/view?usp=sharing)
-* **Submission Materials**: Please check the [submission/](file:///d:/Projects/HireAgentAI/submission/) folder for screenshots, technical pitch presentation slides, and documentation resources.
+* **Presentation Pitch Slides**: 🔗 [Google Slides Presentation](https://docs.google.com/presentation/d/1pgd0wwF5cT7px3qyl6yGbbMaxv1z0hIe_qHM8uLuhdw/edit?usp=sharing) | 🔗 [Local PDF Slides Backup](file:///d:/Projects/HireAgentAI/submission/PPT/HireFlow_Agent_Presentation.pdf)
+* **Submission Materials**: Please check the [submission/](file:///d:/Projects/HireAgentAI/submission/) folder for screenshots and documentation resources.
 
 ---
 
